@@ -20,6 +20,5 @@ db.on("open", () => {
 });
 
 module.exports = {
-    User: mongoose.model('User', require('./user')),
     Task: mongoose.model("Task", require("./task")),
 }
