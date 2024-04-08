@@ -1,4 +1,5 @@
 const { Task } = require("../model");
+const axios = require('axios');
 
 exports.getTaskById = async (req, res, next) => {
     try {
@@ -16,6 +17,7 @@ exports.getTaskById = async (req, res, next) => {
 };
 
 exports.getTaskByList = async (req, res, next) => {
+    console.log("list");
     res.header("Access-Control-Allow-Credentials", true);
     try {
         // 处理请求
@@ -92,4 +94,16 @@ exports.deleteTask = async (req, res, next) => {
     } catch (err) {
         next(err);
     }
+};
+
+exports.random = async (req, res, next) => {
+    console.log("random");
+    const result = await axios.post("https://api.xygeng.cn/one");
+    console.log(result.data.data);
+
+    res.send({
+        status: 0,
+        msg: "success",
+        data: result.data.data,
+    });
 };

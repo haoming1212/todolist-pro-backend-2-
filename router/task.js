@@ -17,4 +17,6 @@ router.post("/delete", TaskController.deleteTask);
 // 更新
 router.post("/update", TaskController.updateTask);
 
+router.post("/random", TaskController.random);
+
 module.exports = router;
